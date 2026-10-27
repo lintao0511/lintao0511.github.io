@@ -213,8 +213,11 @@
       img.hidden = false;
       $('avatarFallback').style.display = 'none';
     } else {
-      $('avatarFallback').textContent = (name.trim()[0] || 'L').toUpperCase()
-        + (name.trim().split(/\s+/)[1] || '').toUpperCase();
+      const parts = name.trim().split(/\s+/).filter(Boolean);
+      const initials = parts.length > 1
+        ? parts[0][0] + parts[1][0]
+        : name.trim().slice(0, 2);
+      $('avatarFallback').textContent = initials.toUpperCase();
     }
 
     const meta = $('heroMeta');
