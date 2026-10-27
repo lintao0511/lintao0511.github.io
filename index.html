@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080b14">
+<title>Lin Tao</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b1020'/><text y='72' x='50' font-size='58' font-family='monospace' font-weight='700' text-anchor='middle' fill='%236ea8ff'>L</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<!-- ══════════ 登录视图 ══════════ -->
+<section id="authView" class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <span class="dot"></span><span class="mono">LT / personal</span>
+    </div>
+    <h1 id="authTitle">欢迎回来</h1>
+    <p class="auth-sub" id="authSub">登录以访问你的个人主页</p>
+
+    <form id="authForm" autocomplete="on" novalidate>
+      <label class="field">
+        <span>邮箱</span>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="username" required>
+      </label>
+      <label class="field">
+        <span>密码</span>
+        <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+      </label>
+      <button type="submit" class="btn-primary" id="authSubmit">
+        <span class="btn-label">进入</span><span class="spinner" hidden></span>
+      </button>
+    </form>
+
+    <p class="auth-msg" id="authMsg" role="alert"></p>
+
+    <div class="auth-foot">
+      <button class="link" id="toggleMode" type="button">没有账号？去注册</button>
+      <button class="link" id="forgotBtn" type="button">忘记密码</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 主页视图 ══════════ -->
+<div id="homeView" class="hide">
+  <header class="topbar">
+    <a class="brand mono" href="#top"><span class="dot"></span>LT</a>
+    <nav class="nav mono">
+      <a href="#about">关于</a>
+      <a href="#skills">技能</a>
+      <a href="#work">项目</a>
+      <a href="#contact">联系</a>
+    </nav>
+    <div class="topbar-right">
+      <span class="status mono" id="statusChip"><i class="pulse"></i><span id="statusText">在线</span></span>
+      <button class="btn-ghost mono" id="logoutBtn" type="button">登出</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 个人信息 -->
+    <section class="hero">
+      <div class="hero-avatar">
+        <img id="avatar" alt="" hidden>
+        <div class="avatar-fallback" id="avatarFallback">LT</div>
+      </div>
+      <div class="hero-text">
+        <h1 id="displayName">Lin Tao</h1>
+        <p class="tagline" id="tagline">加载中…</p>
+        <p class="bio" id="bio"></p>
+        <div class="hero-meta mono" id="heroMeta"></div>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">联系我</a>
+          <a class="btn-ghost" id="resumeLink" href="#" hidden>简历 / 资料</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="block">
+      <h2 class="block-title mono"><span class="idx">01</span>技能 <em>SKILLS</em></h2>
+      <div class="skill-cloud" id="skillCloud"></div>
+    </section>
+
+    <!-- 项目 -->
+    <section id="work" class="block">
+      <h2 class="block-title mono"><span class="idx">02</span>项目 <em>PROJECTS</em></h2>
+      <div class="grid-cards" id="projectGrid"></div>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact" class="block">
+      <h2 class="block-title mono"><span class="idx">03</span>联系 <em>CONTACT</em></h2>
+      <div class="link-grid" id="linkGrid"></div>
+    </section>
+  </main>
+
+  <footer class="foot mono">
+    <span>© <span id="year"></span> <span id="footName">Lin Tao</span></span>
+    <span class="foot-mid">由 Claude Code 协助构建</span>
+    <span class="mono dim">last sync <span id="lastSync">—</span></span>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
